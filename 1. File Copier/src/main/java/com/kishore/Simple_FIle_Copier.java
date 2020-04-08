@@ -15,13 +15,13 @@ public class Simple_FIle_Copier {
 
 			@Override
 			public void configure() throws Exception {
-				from("file:data/inbox?noop=true").to("file:date/outbox");
+				from("file:data/inbox?noop=true").to("file:data/outbox");
 			}
 
 		});
 
 		camelContext.start();
-		Thread.sleep(1000000);
+		Thread.sleep(50000);
 
 		camelContext.stop();
 
