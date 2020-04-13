@@ -4,11 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HelloWorldsCamel {
+public class HelloWorldCamelMySQL {
 
 	public static void main(String[] args) {
 
-		SpringApplication.run(HelloWorldsCamel.class, args);
+		SpringApplication.run(HelloWorldCamelMySQL.class, args);
 	}
 
 }
