@@ -58,10 +58,17 @@ public class MyRouteService extends RouteBuilder {
 
 						dataLists.forEach(System.out::println);
 
+						// Print in Console
+						System.out.println(" ----> " + dataLists.get(0).get("id"));
+						//
+
 						dataLists.forEach(carBrands -> {
 							CarBrands brand = new CarBrands();
-							brand.setId(Integer.parseInt(carBrands.get("id")));
+
+							brand.setId(carBrands.get("id"));
 							brand.setBrand(carBrands.get("brand"));
+							
+							brands.add(brand);
 						});
 
 						exchange.getIn().setBody(brands);

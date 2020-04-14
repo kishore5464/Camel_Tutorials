@@ -1,24 +1,24 @@
 package com.kishore.models;
 
 public class CarBrands {
-	private Integer id;
+	private String id;
 	private String brand;
 
 	public CarBrands() {
 		super();
 	}
 
-	public CarBrands(Integer id, String brand) {
+	public CarBrands(String id, String brand) {
 		super();
 		this.id = id;
 		this.brand = brand;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

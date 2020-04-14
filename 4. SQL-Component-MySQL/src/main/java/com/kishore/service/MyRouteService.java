@@ -1,6 +1,8 @@
 package com.kishore.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.sql.DataSource;
@@ -57,6 +59,30 @@ public class MyRouteService extends RouteBuilder {
 					}
 
 				}).to("sql:INSERT INTO Books(id, bookName, authorName) VALUES (:#id, :#bookName, :#authorName)");
+
+		// SELECT OPERATION
+		from("direct:select").to("sql:SELECT * FROM Books").process(new Processor() {
+
+			@Override
+			public void process(Exchange exchange) throws Exception {
+				@SuppressWarnings("unchecked")
+				List<Map<String, String>> books = (List<Map<String, String>>) exchange.getIn().getBody(Books.class);
+				books.forEach(System.out::println);
+
+				List<Books> booksList = new ArrayList<>();
+
+				for (Map<String, String> mapBook : books) {
+					Books book = new Books();
+					book.setId(Integer.parseInt(mapBook.get("id")));
+					book.setBookName(mapBook.get("bookName"));
+					book.setAuthorName(mapBook.get("authorName"));
+
+					booksList.add(book);
+				}
+
+				exchange.getIn().setBody(booksList);
+			}
+		});
 	}
 
 }
