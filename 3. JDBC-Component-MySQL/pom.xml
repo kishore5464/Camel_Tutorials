@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.kishore</groupId>
-	<artifactId>Hello-World-Camel-MySQL</artifactId>
+	<artifactId>JDBC-Component-MySQL</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Hello-World-Camel-MySQL</name>
+	<name>JDBC-Component-MySQL</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
