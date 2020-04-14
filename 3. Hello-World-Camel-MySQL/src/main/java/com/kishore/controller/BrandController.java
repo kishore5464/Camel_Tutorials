@@ -17,6 +17,7 @@ public class BrandController {
 
 	@GetMapping(value = "/brand")
 	public List<CarBrands> getAllBrands() {
+		@SuppressWarnings("unchecked")
 		List<CarBrands> brands = producerTemplate.requestBody("direct:select", null, List.class);
 		return brands;
 	}

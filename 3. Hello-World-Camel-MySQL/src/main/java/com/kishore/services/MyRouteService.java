@@ -6,11 +6,9 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
-import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.impl.DefaultCamelContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,6 +52,7 @@ public class MyRouteService extends RouteBuilder {
 					@Override
 					public void process(Exchange exchange) throws Exception {
 
+						@SuppressWarnings("unchecked")
 						List<Map<String, String>> dataLists = (List<Map<String, String>>) exchange.getIn().getBody();
 						List<CarBrands> brands = new ArrayList<>();
 
